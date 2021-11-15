@@ -9,7 +9,7 @@
 import Alamofire
 
 class LaunchListInteractor: LaunchListInteractorInput {
-
+    
     var missions: [Mission] = []
     weak var output: LaunchListInteractorOutput!
     
@@ -21,12 +21,13 @@ class LaunchListInteractor: LaunchListInteractorInput {
                 case .success:
                     print("Validation Successful")
                     self.missions = response.value!
+                    self.output.setData(missions: self.missions)
                     print(self.missions)
-//                    print(response.result)
                 case let .failure(error):
                     print(error)
                 }
             }
     }
-
+    
+   
 }

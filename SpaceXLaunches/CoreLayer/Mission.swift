@@ -17,14 +17,14 @@ struct Mission: Decodable {
   
     enum CodingKeys: String, CodingKey {
         case missionName = "mission_name"
-        case launchDate = "launch_date_local"
+        case launchDate = "launch_date_utc"
         case links = "links"
     }
 }
 
 struct Links: Decodable {
     
-    let patchPath: String?
+    var patchPath: String?
     
     enum CodingKeys: String, CodingKey {
         case patchPath = "mission_patch_small"

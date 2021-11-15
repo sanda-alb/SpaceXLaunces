@@ -7,7 +7,7 @@
 //
 
 class LaunchListPresenter: LaunchListModuleInput, LaunchListViewOutput, LaunchListInteractorOutput {
-
+    
     weak var view: LaunchListViewInput!
     var interactor: LaunchListInteractorInput!
     var router: LaunchListRouterInput!
@@ -16,4 +16,11 @@ class LaunchListPresenter: LaunchListModuleInput, LaunchListViewOutput, LaunchLi
         
         interactor.fetchMissions()
     }
+    
+    func setData(missions: [Mission]) {
+        
+        view.setData(missions: missions )
+    }
+    
+
 }

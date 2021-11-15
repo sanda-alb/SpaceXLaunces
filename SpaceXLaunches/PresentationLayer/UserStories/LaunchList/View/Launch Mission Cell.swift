@@ -10,8 +10,8 @@ import UIKit
 
 class LaunchMissionCell: UITableViewCell {
     let patch = UIImageView()
-    let missonName = UILabel()
-    let lauchDate = UILabel()
+    let missionName = UILabel()
+    let launchDate = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
            super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,10 +25,17 @@ class LaunchMissionCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+//    func apply(model: LaunchMissionCell.ViewModel) {
+//        patch = viewModel.patch
+//        missionName = viewModel.missionName
+//        launchDate = viewModel.launchDate
+//        
+//    }
+    
     private func embedViews() {
         [ patch,
-          missonName,
-          lauchDate
+          missionName,
+          launchDate
         ].forEach {
             contentView.addSubview($0)
         }
@@ -36,30 +43,46 @@ class LaunchMissionCell: UITableViewCell {
     
     private func setupLayout() {
         patch.snp.makeConstraints {make in
-            make.top.equalToSuperview().offset(-20)
-            make.leading.equalToSuperview().offset(-20)
-            make.bottom.equalToSuperview().offset(-20)
+            make.top.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().offset(-10)
+            make.height.equalTo(100)
+            make.width.equalTo(110)
+    
         }
         
-        missonName.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(-20)
+        missionName.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
             make.leading.equalTo(patch.snp.trailing).offset(30)
             make.trailing.equalToSuperview().offset(-20)
         }
         
-        lauchDate.snp.makeConstraints { make in
-            make.top.equalTo(missonName).offset(20)
+        launchDate.snp.makeConstraints { make in
+            make.top.equalTo(missionName.snp.bottom).offset(10)
             make.leading.equalTo(patch.snp.trailing).offset(30)
-            make.trailing.equalToSuperview().offset(-20)
         }
     }
     
     private func setupAppereance() {
-        missonName.font = UIFont.boldSystemFont(ofSize: 30)
-        missonName.textAlignment = .center
-        missonName.numberOfLines = 2
+        missionName.font = UIFont.boldSystemFont(ofSize: 20)
+        missionName.numberOfLines = 2
         
-        lauchDate.textAlignment = .center
-        lauchDate.font = .systemFont(ofSize: 20)
+        launchDate.font = .systemFont(ofSize: 15)
+        
+    }
+    
+    struct ViewModel {
+        let patch: UIImageView
+        let missionName: UILabel
+        let launchDate: UILabel
+        
+        init(patch: UIImageView, missionName: UILabel, launchDate: UILabel) {
+            self.patch = patch
+            self.missionName = missionName
+            self.launchDate = launchDate
+            
+        }
+        
     }
 }
+

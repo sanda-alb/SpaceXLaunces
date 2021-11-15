@@ -9,11 +9,16 @@
 import UIKit
 import SnapKit
 import Alamofire
+import Kingfisher
 
 class LaunchListViewController: UIViewController, LaunchListViewInput {
-    
-    private let tableView = UITableView()
+
     var output: LaunchListViewOutput!
+    var missionList: [Mission] = []
+    
+    private let emptyImage = UIImage(systemName: "icloud.slash" )
+    private let placeholderImage = UIImage(systemName: "shield")
+    private let tableView = UITableView()
 
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -24,9 +29,13 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
         
     }
 
-
     // MARK: LaunchListViewInput
     func setupInitialState() {
+    }
+    
+    func setData(missions: [Mission]) {
+     missionList = missions
+        tableView.reloadData()
     }
     
     private func setupAll() {
@@ -53,7 +62,7 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     
     private func setupAppereance() {
         view.backgroundColor = . white
-   
+
     }
     
     private func configureTableView() {
@@ -62,8 +71,8 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
 }
+
 
 extension LaunchListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,16 +80,39 @@ extension LaunchListViewController: UITableViewDelegate, UITableViewDataSource {
             withIdentifier: "launchMissionCell",
             for: indexPath
         ) as! LaunchMissionCell
-
         
-//        cell.label.text = personInfo[indexPath.row].title
-//        cell.image.image = personInfo[indexPath.row].photo
+        let patchLink = URL(string: missionList[indexPath.row].links.patchPath ?? "")
+
+
+        let unformattedDate = missionList[indexPath.row].launchDate
+
+        cell.missionName.text = missionList[indexPath.row].missionName
+        cell.launchDate.text = unformattedDate?.formatDate()
+        cell.patch.kf.setImage(with: patchLink, placeholder: placeholderImage, options: nil, completionHandler: nil)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section
+        return missionList.count
        }
     
 }
+
+extension String {
+    func formatDate() -> String {
+        let isoDateFormatter = ISO8601DateFormatter()
+        isoDateFormatter.formatOptions = [
+            .withFullDate,
+            .withDashSeparatorInDate
+        ]
+        guard let isoDate = isoDateFormatter.date(from: self) else { return "" }
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "d MMMM, yyy"
+    
+        return dateFormatter.string(from: isoDate)
+        }
+    }
+
+
 

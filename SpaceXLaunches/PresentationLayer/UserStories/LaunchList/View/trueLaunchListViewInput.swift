@@ -14,4 +14,6 @@ protocol LaunchListViewInput: class {
     */
 
     func setupInitialState()
+    
+    func setData(missions: [Mission])
 }
