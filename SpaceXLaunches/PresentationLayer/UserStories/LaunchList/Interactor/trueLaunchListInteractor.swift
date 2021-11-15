@@ -22,7 +22,6 @@ class LaunchListInteractor: LaunchListInteractorInput {
                     print("Validation Successful")
                     self.missions = response.value!
                     self.output.setData(missions: self.missions)
-                    print(self.missions)
                 case let .failure(error):
                     print(error)
                 }

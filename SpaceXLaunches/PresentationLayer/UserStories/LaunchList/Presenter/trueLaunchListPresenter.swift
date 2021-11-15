@@ -18,9 +18,15 @@ class LaunchListPresenter: LaunchListModuleInput, LaunchListViewOutput, LaunchLi
     }
     
     func setData(missions: [Mission]) {
-        
+       
         view.setData(missions: missions )
     }
     
+//    func convertToViewModel(missions: [Mission]) -> LaunchMissionCell.ViewModel {
+// 
+//            
+//        })
+//
+//    }
 
 }

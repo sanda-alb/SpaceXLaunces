@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class LaunchMissionCell: UITableViewCell {
-    let patch = UIImageView()
-    let missionName = UILabel()
-    let launchDate = UILabel()
+    var patch = UIImageView()
+    var missionName = UILabel()
+    var launchDate = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
            super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,10 +26,10 @@ class LaunchMissionCell: UITableViewCell {
     }
     
 //    func apply(model: LaunchMissionCell.ViewModel) {
-//        patch = viewModel.patch
-//        missionName = viewModel.missionName
-//        launchDate = viewModel.launchDate
-//        
+//        patch.image = model.patch
+//        missionName.text = model.missionName
+//        launchDate.text = model.launchDate
+//
 //    }
     
     private func embedViews() {
@@ -72,15 +72,14 @@ class LaunchMissionCell: UITableViewCell {
     }
     
     struct ViewModel {
-        let patch: UIImageView
-        let missionName: UILabel
-        let launchDate: UILabel
+        let patch: String?
+        let missionName: String?
+        let launchDate: String?
         
-        init(patch: UIImageView, missionName: UILabel, launchDate: UILabel) {
-            self.patch = patch
-            self.missionName = missionName
-            self.launchDate = launchDate
-            
+        init(mission: Mission) {
+            self.patch = mission.links.patchPath
+            self.missionName = mission.missionName
+            self.launchDate = mission.launchDate
         }
         
     }
