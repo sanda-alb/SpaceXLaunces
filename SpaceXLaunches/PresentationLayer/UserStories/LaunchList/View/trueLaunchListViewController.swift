@@ -14,7 +14,8 @@ import Kingfisher
 class LaunchListViewController: UIViewController, LaunchListViewInput {
 
     var output: LaunchListViewOutput!
-    var missionList: [Mission] = []
+//    var missionList: [Mission] = []
+    var missionListVM: [LaunchMissionCell.ViewModel] = []
     
     private let emptyImage = UIImage(systemName: "icloud.slash" )
     private let placeholderImage = UIImage(systemName: "shield")
@@ -26,15 +27,19 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
         output.viewIsReady()
         
         setupAll()
-        
     }
 
     // MARK: LaunchListViewInput
     func setupInitialState() {
     }
     
-    func setData(missions: [Mission]) {
-     missionList = missions
+//    func setData(missions: [Mission]) {
+//        missionList = missions
+//        tableView.reloadData()
+//    }
+    
+    func passViewModels(cellViewModels: [LaunchMissionCell.ViewModel]) {
+        missionListVM = cellViewModels
         tableView.reloadData()
     }
     
@@ -73,7 +78,6 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     }
 }
 
-
 extension LaunchListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
@@ -81,19 +85,13 @@ extension LaunchListViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath
         ) as! LaunchMissionCell
         
-        let patchLink = URL(string: missionList[indexPath.row].links.patchPath ?? "")
-
-
-        let unformattedDate = missionList[indexPath.row].launchDate
-
-        cell.missionName.text = missionList[indexPath.row].missionName
-        cell.launchDate.text = unformattedDate?.formatDate()
-        cell.patch.kf.setImage(with: patchLink, placeholder: placeholderImage, options: nil, completionHandler: nil)
+        cell.apply(model: missionListVM[indexPath.row])
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return missionList.count
+        return missionListVM.count
        }
     
 }

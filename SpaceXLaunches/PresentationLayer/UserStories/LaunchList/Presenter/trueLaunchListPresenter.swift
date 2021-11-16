@@ -17,16 +17,18 @@ class LaunchListPresenter: LaunchListModuleInput, LaunchListViewOutput, LaunchLi
         interactor.fetchMissions()
     }
     
-    func setData(missions: [Mission]) {
-       
-        view.setData(missions: missions )
+    func convertToViewModel(missions: [Mission]) {
+ 
+        let cellViewModels = missions.map(LaunchMissionCell.ViewModel.init(mission: ))
+        view.passViewModels(cellViewModels: cellViewModels)
     }
     
-//    func convertToViewModel(missions: [Mission]) -> LaunchMissionCell.ViewModel {
-// 
-//            
-//        })
-//
-//    }
-
+    func passDataFromInteractor(missions: [Mission]) {
+        
+        convertToViewModel(missions: missions)
+    }
+    
+  
 }
+
+

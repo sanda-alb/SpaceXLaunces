@@ -7,11 +7,13 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class LaunchMissionCell: UITableViewCell {
     var patch = UIImageView()
     var missionName = UILabel()
     var launchDate = UILabel()
+    private let placeholderImage = UIImage(systemName: "shield")
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
            super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,12 +27,12 @@ class LaunchMissionCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func apply(model: LaunchMissionCell.ViewModel) {
-//        patch.image = model.patch
-//        missionName.text = model.missionName
-//        launchDate.text = model.launchDate
-//
-//    }
+    func apply(model: LaunchMissionCell.ViewModel) {
+        let patchLink = URL(string: model.patch ?? "")
+        patch.kf.setImage(with: patchLink, placeholder: placeholderImage, options: nil, completionHandler: nil)
+        missionName.text = model.missionName
+        launchDate.text = model.launchDate?.formatDate()
+    }
     
     private func embedViews() {
         [ patch,
@@ -68,7 +70,6 @@ class LaunchMissionCell: UITableViewCell {
         missionName.numberOfLines = 2
         
         launchDate.font = .systemFont(ofSize: 15)
-        
     }
     
     struct ViewModel {

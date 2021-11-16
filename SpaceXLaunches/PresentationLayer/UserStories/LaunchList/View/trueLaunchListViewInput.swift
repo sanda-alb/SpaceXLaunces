@@ -15,5 +15,5 @@ protocol LaunchListViewInput: class {
 
     func setupInitialState()
     
-    func setData(missions: [Mission])
+    func passViewModels(cellViewModels: [LaunchMissionCell.ViewModel])
 }
