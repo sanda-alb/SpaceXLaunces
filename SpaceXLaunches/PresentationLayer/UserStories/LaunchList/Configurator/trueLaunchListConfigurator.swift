@@ -19,7 +19,7 @@ class LaunchListModuleConfigurator {
 
     private func configure(viewController: LaunchListViewController) {
 
-        let router = LaunchListRouter()
+        let router = LaunchListRouter(viewController: viewController)
 
         let presenter = LaunchListPresenter()
         presenter.view = viewController

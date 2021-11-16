@@ -6,6 +6,8 @@
 //  Copyright © 2021 Kinoplan. All rights reserved.
 //
 
+import Foundation
+
 protocol LaunchListViewOutput {
 
     /**
@@ -14,4 +16,6 @@ protocol LaunchListViewOutput {
     */
 
     func viewIsReady()
+    
+    func cellTapped(missionInfo: LaunchMissionCell.ViewModel)
 }

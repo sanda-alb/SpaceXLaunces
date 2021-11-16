@@ -6,6 +6,8 @@
 //  Copyright © 2021 Kinoplan. All rights reserved.
 //
 
+import Foundation
+
 class LaunchListPresenter: LaunchListModuleInput, LaunchListViewOutput, LaunchListInteractorOutput {
     
     weak var view: LaunchListViewInput!
@@ -17,15 +19,14 @@ class LaunchListPresenter: LaunchListModuleInput, LaunchListViewOutput, LaunchLi
         interactor.fetchMissions()
     }
     
-    func convertToViewModel(missions: [Mission]) {
- 
+    func passDataFromInteractor(missions: [Mission]) {
         let cellViewModels = missions.map(LaunchMissionCell.ViewModel.init(mission: ))
         view.passViewModels(cellViewModels: cellViewModels)
     }
     
-    func passDataFromInteractor(missions: [Mission]) {
+    func cellTapped(missionInfo: LaunchMissionCell.ViewModel) {
         
-        convertToViewModel(missions: missions)
+        router.goInfo(missionInfo: missionInfo)
     }
     
   

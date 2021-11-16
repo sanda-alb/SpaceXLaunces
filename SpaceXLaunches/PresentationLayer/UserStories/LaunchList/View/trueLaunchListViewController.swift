@@ -14,7 +14,6 @@ import Kingfisher
 class LaunchListViewController: UIViewController, LaunchListViewInput {
 
     var output: LaunchListViewOutput!
-//    var missionList: [Mission] = []
     var missionListVM: [LaunchMissionCell.ViewModel] = []
     
     private let emptyImage = UIImage(systemName: "icloud.slash" )
@@ -25,18 +24,13 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
-        
+       
         setupAll()
     }
 
     // MARK: LaunchListViewInput
     func setupInitialState() {
     }
-    
-//    func setData(missions: [Mission]) {
-//        missionList = missions
-//        tableView.reloadData()
-//    }
     
     func passViewModels(cellViewModels: [LaunchMissionCell.ViewModel]) {
         missionListVM = cellViewModels
@@ -93,6 +87,13 @@ extension LaunchListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return missionListVM.count
        }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        output.cellTapped(missionInfo: missionListVM[indexPath.row])
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
 
