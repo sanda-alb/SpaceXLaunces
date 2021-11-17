@@ -72,29 +72,30 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     }
 }
 
-extension LaunchListViewController: UITableViewDelegate, UITableViewDataSource {
+extension LaunchListViewController:  UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "launchMissionCell",
             for: indexPath
         ) as! LaunchMissionCell
-        
+
         cell.apply(model: missionListVM[indexPath.row])
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return missionListVM.count
        }
-    
+}
+
+extension LaunchListViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         output.cellTapped(missionInfo: missionListVM[indexPath.row])
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
 
 extension String {

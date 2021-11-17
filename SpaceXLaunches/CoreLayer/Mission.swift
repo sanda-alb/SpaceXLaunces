@@ -29,7 +29,7 @@ struct Links: Decodable {
     let patchPath: String?
     let articleLink: String?
     let wikipedia: String?
-    let images: [String]?
+    let images: [String]
     let reddit: String?
     let video: String?
     

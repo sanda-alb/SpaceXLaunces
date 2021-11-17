@@ -14,6 +14,7 @@
 		344A062850B2D8ACD56A52E2 /* trueLaunchInfoInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E6047607098ED0DC71CB3 /* trueLaunchInfoInitializer.swift */; };
 		37D8EF7847790FD237E46AE4 /* trueLaunchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABBE8BAB16554AD596991C /* trueLaunchInfoViewController.swift */; };
 		3C373758944380CFA35F3DEA /* trueLaunchInfoConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECDCDF39F835CF3FCBB9592 /* trueLaunchInfoConfigurator.swift */; };
+		49481C372745084A00CAC4C6 /* LaunchImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49481C362745084A00CAC4C6 /* LaunchImageCell.swift */; };
 		49D7B363273D5714001E8EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7B362273D5714001E8EFB /* AppDelegate.swift */; };
 		49D7B365273D5714001E8EFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7B364273D5714001E8EFB /* SceneDelegate.swift */; };
 		49D7B36C273D5717001E8EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49D7B36B273D5717001E8EFB /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		36AAD211F15FD858AEA2210B /* trueLaunchListPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListPresenter.swift; sourceTree = "<group>"; };
 		401A0CEDC58F91D2C8D4FCB1 /* trueLaunchListViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListViewInput.swift; sourceTree = "<group>"; };
 		40EA26C8433235ED61BE45F3 /* trueLaunchListModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListModuleInput.swift; sourceTree = "<group>"; };
+		49481C362745084A00CAC4C6 /* LaunchImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchImageCell.swift; sourceTree = "<group>"; };
 		49D7B35F273D5714001E8EFB /* SpaceXLaunches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXLaunches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D7B362273D5714001E8EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49D7B364273D5714001E8EFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +119,6 @@
 				CBDE09681A2E52793AD30617 /* trueLaunchInfoModuleInput.swift */,
 				7334D5680822B7A05C0ECC90 /* trueLaunchInfoPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -200,7 +201,6 @@
 				DF66BE6A460B7EC971F83C42 /* trueLaunchInfoRouterInput.swift */,
 				F82220A2BDC929664ECD775D /* trueLaunchInfoRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -219,8 +219,8 @@
 				A1F0B60A1D73EF3CBAC63CC9 /* trueLaunchInfoViewInput.swift */,
 				A4F90B077479285B668114EE /* trueLaunchInfoViewOutput.swift */,
 				21ABBE8BAB16554AD596991C /* trueLaunchInfoViewController.swift */,
+				49481C362745084A00CAC4C6 /* LaunchImageCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -242,7 +242,6 @@
 				4BB7AC092C453E9E30B12060 /* Router */,
 				9B5311CBB746FAD35BB8ED9F /* Configurator */,
 			);
-			name = LaunchInfo;
 			path = LaunchInfo;
 			sourceTree = "<group>";
 		};
@@ -252,7 +251,6 @@
 				CECDCDF39F835CF3FCBB9592 /* trueLaunchInfoConfigurator.swift */,
 				0F3E6047607098ED0DC71CB3 /* trueLaunchInfoInitializer.swift */,
 			);
-			name = Configurator;
 			path = Configurator;
 			sourceTree = "<group>";
 		};
@@ -283,7 +281,6 @@
 				55EBDE148FD03534A3C8BFEE /* trueLaunchInfoInteractorOutput.swift */,
 				0C52E991BD0E33AD730BE5F6 /* trueLaunchInfoInteractor.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -427,6 +424,7 @@
 				9F38A288130F8466E19C0179 /* trueLaunchListRouter.swift in Sources */,
 				940AFC38699BECA730DA784A /* trueLaunchListConfigurator.swift in Sources */,
 				F16CDA45EA28751E64F17D90 /* trueLaunchListInitializer.swift in Sources */,
+				49481C372745084A00CAC4C6 /* LaunchImageCell.swift in Sources */,
 				E732485144AE3A57193D644E /* trueLaunchInfoViewInput.swift in Sources */,
 				92AF5E0E7C7514103BE4613E /* trueLaunchInfoViewOutput.swift in Sources */,
 				37D8EF7847790FD237E46AE4 /* trueLaunchInfoViewController.swift in Sources */,

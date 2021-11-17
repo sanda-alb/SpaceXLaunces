@@ -17,11 +17,6 @@ class LaunchInfoPresenter: LaunchInfoModuleInput, LaunchInfoViewOutput, LaunchIn
         self.missionInfo = missionInfo
     }
     
-//    func setInfo(missionInfo: LaunchMissionCell.ViewModel) {
-//        view.passMissionVM(mission: missionInfo)
-//    }
-    
-
     func viewIsReady() {
         view.passMissionVM(mission: missionInfo)
     }
