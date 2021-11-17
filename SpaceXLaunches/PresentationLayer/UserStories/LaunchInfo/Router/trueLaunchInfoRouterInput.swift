@@ -10,4 +10,5 @@ import Foundation
 
 protocol LaunchInfoRouterInput {
 
+    func goToLargeImage(imageURL: String)
 }

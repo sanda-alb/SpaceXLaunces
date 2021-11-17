@@ -8,4 +8,18 @@
 
 class LaunchInfoRouter: LaunchInfoRouterInput {
 
+    
+    weak var viewController: LaunchInfoViewController?
+    
+    init (viewController: LaunchInfoViewController) {
+        self.viewController = viewController
+    }
+    
+    func goToLargeImage(imageURL: String) {
+        let vc = SingleImageViewController()
+        SingleImageModuleConfigurator().configureModuleForViewInput(viewInput: vc, imageURL: imageURL)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }
+
+

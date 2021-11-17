@@ -45,4 +45,8 @@ class LaunchImageCell: UICollectionViewCell {
         launchImage.layer.borderWidth = 1
         launchImage.clipsToBounds = true
     }
+    
+    func apply(url: URL) {
+        launchImage.kf.setImage(with: url, placeholder: nil, options: nil, completionHandler: nil)
+    }
 }

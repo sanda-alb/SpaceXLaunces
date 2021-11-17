@@ -58,6 +58,10 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
         rocketName.text = mission.rocketName
     }
     
+    func apply(mission: LaunchMissionCell.ViewModel) {
+        
+    }
+    
     private func embedViews() {
         [
           patch,
@@ -179,8 +183,7 @@ extension LaunchInfoViewController: UICollectionViewDataSource {
             for: indexPath
         ) as! LaunchImageCell
         
-        imageCell.launchImage.kf.setImage(with: images[indexPath.item], placeholder: nil, options: nil, completionHandler: nil)
-        imageCell.backgroundColor = .cyan
+        imageCell.apply(url: images[indexPath.item] )
              return imageCell
     }
 }

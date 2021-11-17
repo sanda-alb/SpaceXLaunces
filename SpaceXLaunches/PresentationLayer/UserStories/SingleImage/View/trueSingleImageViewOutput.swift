@@ -1,12 +1,12 @@
 //
-//  LaunchInfotrueLaunchInfoViewOutput.swift
+//  SingleImagetrueSingleImageViewOutput.swift
 //  SpaceXLaunches
 //
-//  Created by Albrekht Sanda on 16/11/2021.
+//  Created by Albrekht Sanda on 17/11/2021.
 //  Copyright © 2021 Kinoplan. All rights reserved.
 //
 
-protocol LaunchInfoViewOutput {
+protocol SingleImageViewOutput {
 
     /**
         @author Albrekht Sanda

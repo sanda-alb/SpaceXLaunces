@@ -15,8 +15,8 @@ class LaunchListModuleInitializer: NSObject {
 
     override func awakeFromNib() {
 
-        let configurator = LaunchListModuleConfigurator()
-        configurator.configureModuleForViewInput(viewInput: launchlistViewController)
+//        let configurator = LaunchListModuleConfigurator()
+//        configurator.configureModuleForViewInput(viewInput: launchlistViewController)
     }
 
 }

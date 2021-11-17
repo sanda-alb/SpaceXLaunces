@@ -19,7 +19,7 @@ class LaunchInfoModuleConfigurator {
 
     private func configure(viewController: LaunchInfoViewController, missionInfo: LaunchMissionCell.ViewModel ) {
 
-        let router = LaunchInfoRouter()
+        let router = LaunchInfoRouter(viewController: viewController)
 
         let presenter = LaunchInfoPresenter(missionInfo: missionInfo)
         presenter.view = viewController
@@ -31,5 +31,4 @@ class LaunchInfoModuleConfigurator {
         presenter.interactor = interactor
         viewController.output = presenter
     }
-
 }

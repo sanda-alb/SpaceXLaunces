@@ -20,4 +20,9 @@ class LaunchInfoPresenter: LaunchInfoModuleInput, LaunchInfoViewOutput, LaunchIn
     func viewIsReady() {
         view.passMissionVM(mission: missionInfo)
     }
+    
+    func imageTapped(imageURL: String) {
+        router.goToLargeImage(imageURL: imageURL)
+    }
+    
 }

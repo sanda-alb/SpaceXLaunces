@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		06B194BAE7055496174208E9 /* trueLaunchListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93E5AC0863DDB2914E90E5 /* trueLaunchListInteractorOutput.swift */; };
+		0C60EB4F15C3C61A94E8DD3E /* trueSingleImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46938CA81C830CA1CB47BE48 /* trueSingleImagePresenter.swift */; };
 		0DA2DDD1D47AF25AD9F740CA /* trueLaunchListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC93260558B07B60EF320F0 /* trueLaunchListInteractor.swift */; };
 		10A2544272001F2059DF0B94 /* trueLaunchInfoInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBDE148FD03534A3C8BFEE /* trueLaunchInfoInteractorOutput.swift */; };
+		119FEF736B465533732B361A /* trueSingleImageInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3641430F69BF53C4755B5AF8 /* trueSingleImageInitializer.swift */; };
 		185486DDE23AC1C47830EBB3 /* trueLaunchListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE43969BCA38FBBA79FACD /* trueLaunchListInteractorInput.swift */; };
 		344A062850B2D8ACD56A52E2 /* trueLaunchInfoInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E6047607098ED0DC71CB3 /* trueLaunchInfoInitializer.swift */; };
 		37D8EF7847790FD237E46AE4 /* trueLaunchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABBE8BAB16554AD596991C /* trueLaunchInfoViewController.swift */; };
@@ -22,7 +24,11 @@
 		49D7B37B273E57EC001E8EFB /* Launch Mission Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7B37A273E57EC001E8EFB /* Launch Mission Cell.swift */; };
 		49D7B37D273E7343001E8EFB /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7B37C273E7343001E8EFB /* Mission.swift */; };
 		4E65EC22DA0BCFB3CEB73F51 /* Pods_SpaceXLaunches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC89B971D3F500BDABAE625 /* Pods_SpaceXLaunches.framework */; };
+		5EDFDC1B23EAC000CAEAD048 /* trueSingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE2C4E646A189BF366DB72B /* trueSingleImageViewController.swift */; };
+		75FDE7246CAA5FCFB0AFB3CF /* trueSingleImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991848C77225469371FF8BE /* trueSingleImageRouter.swift */; };
 		848543E28266A907FC370F72 /* trueLaunchListViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401A0CEDC58F91D2C8D4FCB1 /* trueLaunchListViewInput.swift */; };
+		872D012686CE84D0D5FEE783 /* trueSingleImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1862D4D56BA5247B7A949B /* trueSingleImageInteractor.swift */; };
+		8F3FC48A03719C42D26E2813 /* trueSingleImageRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2470A822203BB014478FC6 /* trueSingleImageRouterInput.swift */; };
 		90B1C92B577376CC63097A44 /* trueLaunchListRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499CE42D4FDB3C05A977182 /* trueLaunchListRouterInput.swift */; };
 		92AF5E0E7C7514103BE4613E /* trueLaunchInfoViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F90B077479285B668114EE /* trueLaunchInfoViewOutput.swift */; };
 		940AFC38699BECA730DA784A /* trueLaunchListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945D350D1B3523B4F603A99A /* trueLaunchListConfigurator.swift */; };
@@ -31,27 +37,40 @@
 		9814ACAE6E87D4572C621DF2 /* trueLaunchInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E991BD0E33AD730BE5F6 /* trueLaunchInfoInteractor.swift */; };
 		9CE11553D4CC69CD0BFFAACD /* trueLaunchListModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EA26C8433235ED61BE45F3 /* trueLaunchListModuleInput.swift */; };
 		9F38A288130F8466E19C0179 /* trueLaunchListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281031301DB79D9DDC91A97 /* trueLaunchListRouter.swift */; };
+		B160DA28CDECBA9CFAF1EE48 /* trueSingleImageInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AFAD477B645FF0D9C8F437 /* trueSingleImageInteractorOutput.swift */; };
 		B32E1F4D31A73CF4CA104E8F /* trueLaunchInfoRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF66BE6A460B7EC971F83C42 /* trueLaunchInfoRouterInput.swift */; };
+		B99CB5DDC01A99B52BFF8A4A /* trueSingleImageInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D40CB49B6AE9467EA39FD /* trueSingleImageInteractorInput.swift */; };
+		BDE1C9332ED9FCF3C22BC4EC /* trueSingleImageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897335A9D589EDCB598ECE4 /* trueSingleImageConfigurator.swift */; };
 		BF81E627291474DFAF9B78BE /* trueLaunchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A89E805A9EACB6AB647EDAF /* trueLaunchListViewController.swift */; };
 		C2163B90FE5522F45CDDC841 /* trueLaunchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAD211F15FD858AEA2210B /* trueLaunchListPresenter.swift */; };
 		C4EEA93A9BEFDAFC895292AF /* trueLaunchInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82220A2BDC929664ECD775D /* trueLaunchInfoRouter.swift */; };
+		C5F023156973B0FA19389785 /* trueSingleImageModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEA8BD63C9C98B495354512 /* trueSingleImageModuleInput.swift */; };
 		DD707E781D59A0D4E3D6D30A /* trueLaunchInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7334D5680822B7A05C0ECC90 /* trueLaunchInfoPresenter.swift */; };
 		E732485144AE3A57193D644E /* trueLaunchInfoViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F0B60A1D73EF3CBAC63CC9 /* trueLaunchInfoViewInput.swift */; };
+		F0963029955BC84E130409D2 /* trueSingleImageViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D35D73B041F2AAC5C3EC0 /* trueSingleImageViewOutput.swift */; };
 		F16CDA45EA28751E64F17D90 /* trueLaunchListInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6801BC9287A6D1AEAB47D4CA /* trueLaunchListInitializer.swift */; };
 		F9791747B6DA48C5654FCE7A /* trueLaunchInfoModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE09681A2E52793AD30617 /* trueLaunchInfoModuleInput.swift */; };
+		FDB60179550E29C3C91BEE42 /* trueSingleImageViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457D1466465BB3EF114A96C /* trueSingleImageViewInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01CE43969BCA38FBBA79FACD /* trueLaunchListInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListInteractorInput.swift; sourceTree = "<group>"; };
 		0A89E805A9EACB6AB647EDAF /* trueLaunchListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListViewController.swift; sourceTree = "<group>"; };
 		0C52E991BD0E33AD730BE5F6 /* trueLaunchInfoInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoInteractor.swift; sourceTree = "<group>"; };
+		0DEA8BD63C9C98B495354512 /* trueSingleImageModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageModuleInput.swift; sourceTree = "<group>"; };
 		0F3E6047607098ED0DC71CB3 /* trueLaunchInfoInitializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoInitializer.swift; sourceTree = "<group>"; };
+		1457D1466465BB3EF114A96C /* trueSingleImageViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageViewInput.swift; sourceTree = "<group>"; };
+		17AFAD477B645FF0D9C8F437 /* trueSingleImageInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageInteractorOutput.swift; sourceTree = "<group>"; };
+		1991848C77225469371FF8BE /* trueSingleImageRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageRouter.swift; sourceTree = "<group>"; };
+		1B2470A822203BB014478FC6 /* trueSingleImageRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageRouterInput.swift; sourceTree = "<group>"; };
 		1DC93260558B07B60EF320F0 /* trueLaunchListInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListInteractor.swift; sourceTree = "<group>"; };
 		21ABBE8BAB16554AD596991C /* trueLaunchInfoViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoViewController.swift; sourceTree = "<group>"; };
 		2D93E5AC0863DDB2914E90E5 /* trueLaunchListInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListInteractorOutput.swift; sourceTree = "<group>"; };
+		3641430F69BF53C4755B5AF8 /* trueSingleImageInitializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageInitializer.swift; sourceTree = "<group>"; };
 		36AAD211F15FD858AEA2210B /* trueLaunchListPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListPresenter.swift; sourceTree = "<group>"; };
 		401A0CEDC58F91D2C8D4FCB1 /* trueLaunchListViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListViewInput.swift; sourceTree = "<group>"; };
 		40EA26C8433235ED61BE45F3 /* trueLaunchListModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListModuleInput.swift; sourceTree = "<group>"; };
+		46938CA81C830CA1CB47BE48 /* trueSingleImagePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImagePresenter.swift; sourceTree = "<group>"; };
 		49481C362745084A00CAC4C6 /* LaunchImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchImageCell.swift; sourceTree = "<group>"; };
 		49D7B35F273D5714001E8EFB /* SpaceXLaunches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXLaunches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D7B362273D5714001E8EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,12 +81,16 @@
 		49D7B37A273E57EC001E8EFB /* Launch Mission Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Launch Mission Cell.swift"; sourceTree = "<group>"; };
 		49D7B37C273E7343001E8EFB /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		55EBDE148FD03534A3C8BFEE /* trueLaunchInfoInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoInteractorOutput.swift; sourceTree = "<group>"; };
+		587D40CB49B6AE9467EA39FD /* trueSingleImageInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageInteractorInput.swift; sourceTree = "<group>"; };
 		6281031301DB79D9DDC91A97 /* trueLaunchListRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListRouter.swift; sourceTree = "<group>"; };
 		6801BC9287A6D1AEAB47D4CA /* trueLaunchListInitializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListInitializer.swift; sourceTree = "<group>"; };
 		7334D5680822B7A05C0ECC90 /* trueLaunchInfoPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoPresenter.swift; sourceTree = "<group>"; };
 		7499CE42D4FDB3C05A977182 /* trueLaunchListRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListRouterInput.swift; sourceTree = "<group>"; };
 		7FC89B971D3F500BDABAE625 /* Pods_SpaceXLaunches.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceXLaunches.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1862D4D56BA5247B7A949B /* trueSingleImageInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageInteractor.swift; sourceTree = "<group>"; };
 		945D350D1B3523B4F603A99A /* trueLaunchListConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListConfigurator.swift; sourceTree = "<group>"; };
+		9897335A9D589EDCB598ECE4 /* trueSingleImageConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageConfigurator.swift; sourceTree = "<group>"; };
+		9DE2C4E646A189BF366DB72B /* trueSingleImageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageViewController.swift; sourceTree = "<group>"; };
 		A1F0B60A1D73EF3CBAC63CC9 /* trueLaunchInfoViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoViewInput.swift; sourceTree = "<group>"; };
 		A4F90B077479285B668114EE /* trueLaunchInfoViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoViewOutput.swift; sourceTree = "<group>"; };
 		A7F3C074713285F72A8EC55E /* trueLaunchListViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchListViewOutput.swift; sourceTree = "<group>"; };
@@ -78,6 +101,7 @@
 		DF66BE6A460B7EC971F83C42 /* trueLaunchInfoRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoRouterInput.swift; sourceTree = "<group>"; };
 		DFEE4D428B7A33515BA2166C /* trueLaunchInfoInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoInteractorInput.swift; sourceTree = "<group>"; };
 		F82220A2BDC929664ECD775D /* trueLaunchInfoRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueLaunchInfoRouter.swift; sourceTree = "<group>"; };
+		FE2D35D73B041F2AAC5C3EC0 /* trueSingleImageViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = trueSingleImageViewOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +116,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B9E13587104B1286ACA19EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1457D1466465BB3EF114A96C /* trueSingleImageViewInput.swift */,
+				FE2D35D73B041F2AAC5C3EC0 /* trueSingleImageViewOutput.swift */,
+				9DE2C4E646A189BF366DB72B /* trueSingleImageViewController.swift */,
+			);
+			name = View;
+			path = View;
+			sourceTree = "<group>";
+		};
 		18E835798E3867B0C0DE5CE1 /* LaunchList */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +137,17 @@
 				CEC3E56E953B19AD76CE8A6C /* Configurator */,
 			);
 			path = LaunchList;
+			sourceTree = "<group>";
+		};
+		2CA1E812F4A284F0FA61D44C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				587D40CB49B6AE9467EA39FD /* trueSingleImageInteractorInput.swift */,
+				17AFAD477B645FF0D9C8F437 /* trueSingleImageInteractorOutput.swift */,
+				8F1862D4D56BA5247B7A949B /* trueSingleImageInteractor.swift */,
+			);
+			name = Interactor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		3AA52A9198FE4EC1C30C1D62 /* Pods */ = {
@@ -176,6 +222,7 @@
 			children = (
 				18E835798E3867B0C0DE5CE1 /* LaunchList */,
 				940FDF1DEB7347DB788CB309 /* LaunchInfo */,
+				7CE385DF921E6EE32BB9D042 /* SingleImage */,
 			);
 			path = UserStories;
 			sourceTree = "<group>";
@@ -233,6 +280,19 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		7CE385DF921E6EE32BB9D042 /* SingleImage */ = {
+			isa = PBXGroup;
+			children = (
+				0B9E13587104B1286ACA19EA /* View */,
+				C262065B0A4297F4D5F3F729 /* Presenter */,
+				2CA1E812F4A284F0FA61D44C /* Interactor */,
+				B94DB5879A62EE88A512DB84 /* Router */,
+				C6D97B438D4663DE39DF8044 /* Configurator */,
+			);
+			name = SingleImage;
+			path = SingleImage;
+			sourceTree = "<group>";
+		};
 		940FDF1DEB7347DB788CB309 /* LaunchInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +314,16 @@
 			path = Configurator;
 			sourceTree = "<group>";
 		};
+		B94DB5879A62EE88A512DB84 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1B2470A822203BB014478FC6 /* trueSingleImageRouterInput.swift */,
+				1991848C77225469371FF8BE /* trueSingleImageRouter.swift */,
+			);
+			name = Router;
+			path = Router;
+			sourceTree = "<group>";
+		};
 		BD953AB87A4C157C30B83BE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +333,26 @@
 				49D7B37A273E57EC001E8EFB /* Launch Mission Cell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C262065B0A4297F4D5F3F729 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0DEA8BD63C9C98B495354512 /* trueSingleImageModuleInput.swift */,
+				46938CA81C830CA1CB47BE48 /* trueSingleImagePresenter.swift */,
+			);
+			name = Presenter;
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C6D97B438D4663DE39DF8044 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9897335A9D589EDCB598ECE4 /* trueSingleImageConfigurator.swift */,
+				3641430F69BF53C4755B5AF8 /* trueSingleImageInitializer.swift */,
+			);
+			name = Configurator;
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 		CEC3E56E953B19AD76CE8A6C /* Configurator */ = {
@@ -437,6 +527,18 @@
 				C4EEA93A9BEFDAFC895292AF /* trueLaunchInfoRouter.swift in Sources */,
 				3C373758944380CFA35F3DEA /* trueLaunchInfoConfigurator.swift in Sources */,
 				344A062850B2D8ACD56A52E2 /* trueLaunchInfoInitializer.swift in Sources */,
+				FDB60179550E29C3C91BEE42 /* trueSingleImageViewInput.swift in Sources */,
+				F0963029955BC84E130409D2 /* trueSingleImageViewOutput.swift in Sources */,
+				5EDFDC1B23EAC000CAEAD048 /* trueSingleImageViewController.swift in Sources */,
+				C5F023156973B0FA19389785 /* trueSingleImageModuleInput.swift in Sources */,
+				0C60EB4F15C3C61A94E8DD3E /* trueSingleImagePresenter.swift in Sources */,
+				B99CB5DDC01A99B52BFF8A4A /* trueSingleImageInteractorInput.swift in Sources */,
+				B160DA28CDECBA9CFAF1EE48 /* trueSingleImageInteractorOutput.swift in Sources */,
+				872D012686CE84D0D5FEE783 /* trueSingleImageInteractor.swift in Sources */,
+				8F3FC48A03719C42D26E2813 /* trueSingleImageRouterInput.swift in Sources */,
+				75FDE7246CAA5FCFB0AFB3CF /* trueSingleImageRouter.swift in Sources */,
+				BDE1C9332ED9FCF3C22BC4EC /* trueSingleImageConfigurator.swift in Sources */,
+				119FEF736B465533732B361A /* trueSingleImageInitializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
