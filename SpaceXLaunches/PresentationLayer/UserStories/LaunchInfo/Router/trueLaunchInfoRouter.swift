@@ -6,6 +6,8 @@
 //  Copyright © 2021 Kinoplan. All rights reserved.
 //
 
+import Foundation
+
 class LaunchInfoRouter: LaunchInfoRouterInput {
 
     
@@ -15,7 +17,7 @@ class LaunchInfoRouter: LaunchInfoRouterInput {
         self.viewController = viewController
     }
     
-    func goToLargeImage(imageURL: String) {
+    func goToLargeImage(imageURL: URL) {
         let vc = SingleImageViewController()
         SingleImageModuleConfigurator().configureModuleForViewInput(viewInput: vc, imageURL: imageURL)
         viewController?.navigationController?.pushViewController(vc, animated: true)

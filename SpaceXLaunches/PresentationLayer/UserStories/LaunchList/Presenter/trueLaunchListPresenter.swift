@@ -26,7 +26,7 @@ class LaunchListPresenter: LaunchListModuleInput, LaunchListViewOutput, LaunchLi
     
     func cellTapped(missionInfo: LaunchMissionCell.ViewModel) {
         
-        router.goInfo(missionInfo: missionInfo)
+        router.goForInfo(missionInfo: missionInfo)
     }
     
   

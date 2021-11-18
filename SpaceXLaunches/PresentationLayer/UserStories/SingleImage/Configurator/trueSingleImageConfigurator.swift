@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import Foundation
 
 class SingleImageModuleConfigurator {
 
-    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController, imageURL: String) {
+    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController, imageURL: URL) {
 
         if let viewController = viewInput as? SingleImageViewController {
             configure(viewController: viewController, imageURL: imageURL)
         }
     }
 
-    private func configure(viewController: SingleImageViewController, imageURL: String) {
+    private func configure(viewController: SingleImageViewController, imageURL: URL) {
 
         let router = SingleImageRouter()
 

@@ -6,6 +6,8 @@
 //  Copyright © 2021 Kinoplan. All rights reserved.
 //
 
+import Foundation
+
 class LaunchInfoPresenter: LaunchInfoModuleInput, LaunchInfoViewOutput, LaunchInfoInteractorOutput {
 
     weak var view: LaunchInfoViewInput!
@@ -21,7 +23,7 @@ class LaunchInfoPresenter: LaunchInfoModuleInput, LaunchInfoViewOutput, LaunchIn
         view.passMissionVM(mission: missionInfo)
     }
     
-    func imageTapped(imageURL: String) {
+    func imageTapped(imageURL: URL) {
         router.goToLargeImage(imageURL: imageURL)
     }
     

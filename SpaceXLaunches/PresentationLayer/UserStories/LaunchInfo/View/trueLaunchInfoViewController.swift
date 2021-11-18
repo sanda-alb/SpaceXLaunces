@@ -183,13 +183,14 @@ extension LaunchInfoViewController: UICollectionViewDataSource {
             for: indexPath
         ) as! LaunchImageCell
         
-        imageCell.apply(url: images[indexPath.item] )
-             return imageCell
+            imageCell.apply(url: images[indexPath.item])
+            return imageCell
     }
 }
 
 extension LaunchInfoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        output.imageTapped(imageURL: images[indexPath.row])
        print("User tapped on item \(indexPath.row)")
     }
 }

@@ -123,7 +123,6 @@
 				FE2D35D73B041F2AAC5C3EC0 /* trueSingleImageViewOutput.swift */,
 				9DE2C4E646A189BF366DB72B /* trueSingleImageViewController.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -146,7 +145,6 @@
 				17AFAD477B645FF0D9C8F437 /* trueSingleImageInteractorOutput.swift */,
 				8F1862D4D56BA5247B7A949B /* trueSingleImageInteractor.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -289,7 +287,6 @@
 				B94DB5879A62EE88A512DB84 /* Router */,
 				C6D97B438D4663DE39DF8044 /* Configurator */,
 			);
-			name = SingleImage;
 			path = SingleImage;
 			sourceTree = "<group>";
 		};
@@ -320,7 +317,6 @@
 				1B2470A822203BB014478FC6 /* trueSingleImageRouterInput.swift */,
 				1991848C77225469371FF8BE /* trueSingleImageRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -341,7 +337,6 @@
 				0DEA8BD63C9C98B495354512 /* trueSingleImageModuleInput.swift */,
 				46938CA81C830CA1CB47BE48 /* trueSingleImagePresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -351,7 +346,6 @@
 				9897335A9D589EDCB598ECE4 /* trueSingleImageConfigurator.swift */,
 				3641430F69BF53C4755B5AF8 /* trueSingleImageInitializer.swift */,
 			);
-			name = Configurator;
 			path = Configurator;
 			sourceTree = "<group>";
 		};

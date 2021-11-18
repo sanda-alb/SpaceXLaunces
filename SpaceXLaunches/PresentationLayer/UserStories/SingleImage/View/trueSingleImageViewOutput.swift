@@ -14,6 +14,4 @@ protocol SingleImageViewOutput {
     */
 
     func viewIsReady()
-    
-    func imageTapped(imageURL: String)
 }

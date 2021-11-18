@@ -10,5 +10,5 @@ import Foundation
 
 protocol LaunchListRouterInput {
 
-    func goInfo(missionInfo: LaunchMissionCell.ViewModel)
+    func goForInfo(missionInfo: LaunchMissionCell.ViewModel)
 }
