@@ -14,6 +14,13 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     var output: SingleImageViewOutput!
     private let scrollView = UIScrollView()
     private let imageView = UIImageView()
+    private let rocket = UIImage(named: "rocket")
+    private var imageViewOriginalSize = CGRect ()
+    
+    var imageViewBottomConstraint: NSLayoutConstraint!
+    var imageViewLeadingConstraint: NSLayoutConstraint!
+    var imageViewTopConstraint: NSLayoutConstraint!
+    var imageViewTrailingConstraint: NSLayoutConstraint!
 
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -51,6 +58,7 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     }
     
     private func setupLayout() {
+       
         scrollView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
@@ -58,7 +66,9 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
             make.bottom.equalToSuperview()
         }
         
-        imageView.snp.makeConstraints { make in
+      
+        
+            imageView.snp.makeConstraints { make in
             make.top.equalTo(scrollView.snp.top)
             make.leading.equalTo(scrollView.snp.leading)
             make.trailing.equalTo(scrollView.snp.trailing)
@@ -67,7 +77,9 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     }
     
     private func setupAppereance() {
-        view.backgroundColor = .black
+        view.backgroundColor = .white
+//        imageView.image = resizeImage(image: rocket!, targetSize: CGSize(width: view.frame.width, height: view.frame.height))
+     
     }
     
     private func configureScrollView() {
@@ -75,8 +87,20 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     }
     
     func passURL(imageURL: URL) {
-        imageView.kf.setImage(with: imageURL, placeholder: nil, options: nil, completionHandler: nil)
+        let resisedRocket = resizeImage(image: rocket!, targetSize: CGSize(width: view.frame.width, height: view.frame.height))
+     
+        imageView.image = resisedRocket
+        var size = resisedRocket?.size
+        updateConstraintsForSize(size!)
+
+       
+//imageView.kf.setImage(with: imageURL, placeholder: nil, options: nil, completionHandler: nil)
+
     }
+    
+
+    
+    
 }
 
 extension SingleImageViewController: UIScrollViewDelegate {
@@ -85,6 +109,55 @@ extension SingleImageViewController: UIScrollViewDelegate {
         return imageView
     }
     
-  
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    
+      updateConstraintsForSize(view.bounds.size)
+    }
+
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+            let size = image.size
+            
+            let widthRatio  = targetSize.width  / size.width
+            let heightRatio = targetSize.height / size.height
+            
+            // Figure out what our orientation is, and use that to form the rectangle
+            var newSize: CGSize
+            if(widthRatio > heightRatio) {
+                newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+            } else {
+                newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+            }
+            
+            // This is the rect that we've calculated out and this is what is actually used below
+            let rect = CGRect(origin: .zero, size: newSize)
+            
+            // Actually do the resizing to the rect using the ImageContext stuff
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+            image.draw(in: rect)
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return newImage
+        }
+    
+    func updateConstraintsForSize(_ size: CGSize) {
+        
+        let yOffset = max(0, (size.height - imageView.frame.height) / 2)
+        print ("Y \(yOffset)")
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(yOffset)
+            make.bottom.equalTo(yOffset)
+        }
+        
+        let xOffset = max(0, (size.width - imageView.frame.width) / 2)
+        imageView.snp.makeConstraints{ make in
+            make.leading.equalTo(xOffset)
+            make.trailing.equalTo(xOffset)
+        }
+        
+      view.layoutIfNeeded()
+    }
+    
 }
 

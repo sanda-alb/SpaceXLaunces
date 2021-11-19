@@ -27,7 +27,7 @@ struct Mission: Decodable {
 struct Links: Decodable {
     
     let patchPath: String?
-    let articleLink: String?
+    let article: String?
     let wikipedia: String?
     let images: [String]
     let reddit: String?
@@ -35,7 +35,7 @@ struct Links: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case patchPath = "mission_patch_small"
-        case articleLink = "article_link"
+        case article = "article_link"
         case wikipedia = "wikipedia"
         case reddit = "reddit_media"
         case video = "video_link"

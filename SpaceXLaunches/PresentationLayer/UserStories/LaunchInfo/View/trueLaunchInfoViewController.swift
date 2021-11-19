@@ -8,27 +8,41 @@
 
 import UIKit
 import SnapKit
+import SwiftUI
+
 
 class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
     
     var output: LaunchInfoViewOutput!
 
-    private var patch = UIImageView()
-    private var missionName = UILabel()
-    private var launchDate = UILabel()
-    private var rocketName = UILabel()
-    private var wikipedia = UIButton()
-    private var article = UIButton()
-    private var video = UIButton()
-    private var reddit = UIButton()
+    // views
+    private let patch = UIImageView()
+    private let missionName = UILabel()
+    private let launchDate = UILabel()
+    private let rocketName = UILabel()
+    private let stackView = UIStackView()
+    private let wikipedia = UIButton()
+    private let article = UIButton()
+    private let video = UIButton()
+    private let reddit = UIButton()
     private var images: [URL] = []
-    private var collectionView = UICollectionView(
+    private var redditURL: URL?
+    private var wikipediaURL: URL?
+    private var articleURL: URL?
+    private var videoURL: URL?
+    private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
    
+    // images
     private let placeholderImage = UIImage(systemName: "shield")
     private let buttonImage = UIImage(systemName: "arrowshape.turn.up.left.fill" )
+    private let wikipediaLogo = UIImage(named: "wikipediaLogo")
+    private let redditLogo = UIImage(named: "redditLogo")
+    private let articleLogo = UIImage(named: "articleLogo")
+    private let youtubeLogo = UIImage(named: "youtubeLogo")
+    
 
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -40,6 +54,8 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
         setupLayout()
         setupAppereance()
         configureCollectionView()
+        configureStackView()
+        setupBehavior()
         
     }
 
@@ -56,6 +72,12 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
         launchDate.text = mission.launchDate?.formatDate()
         patch.kf.setImage(with: patchLink, placeholder: placeholderImage, options: nil, completionHandler: nil)
         rocketName.text = mission.rocketName
+       
+        redditURL = URL(string: mission.reddit ?? "")
+        wikipediaURL = URL(string: mission.wikipedia ?? "")
+        videoURL = URL(string: mission.video ?? "")
+        articleURL = URL(string: mission.article ?? "")
+        
     }
     
     func apply(mission: LaunchMissionCell.ViewModel) {
@@ -63,19 +85,26 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
     }
     
     private func embedViews() {
-        [
-          patch,
+        
+        [  wikipedia,
+           article,
+           video,
+           reddit
+        ].forEach {
+            stackView.addArrangedSubview($0)
+        }
+        
+        [ patch,
           missionName,
           launchDate,
           rocketName,
           collectionView,
-          wikipedia,
-          article,
-          video,
-          reddit
+          stackView
         ].forEach {
             view.addSubview($0)
         }
+        
+      
     }
     
     private func setupLayout() {
@@ -96,7 +125,8 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
             make.top.equalTo(launchDate.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
-    }
+            
+        }
         
         patch.snp.makeConstraints { make in
             make.top.equalTo(rocketName.snp.bottom).offset(20)
@@ -113,34 +143,33 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
             
         }
         
-        wikipedia.snp.makeConstraints { make in
+        stackView.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(10)
-            make.width.height.equalTo(40)
+            make.trailing.equalToSuperview().offset(-10)
+        }
+        
+        wikipedia.snp.makeConstraints { make in
+            make.width.height.equalTo(80)
         }
         
         article.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(20)
-            make.leading.equalTo(wikipedia.snp.trailing).offset(10)
-            make.width.height.equalTo(40)
-        }
-        
+            make.width.height.equalTo(80)
+               }
+
         reddit.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(20)
-            make.leading.equalTo(article.snp.trailing).offset(10)
-            make.width.height.equalTo(40)
+            make.width.height.equalTo(80)
         }
-        
+
         video.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(20)
-            make.leading.equalTo(reddit.snp.trailing).offset(10)
-            make.width.height.equalTo(40)
+            make.width.height.equalTo(80)
         }
     }
         
-    
     private func setupAppereance() {
         view.backgroundColor = .white
+        self.navigationController?.navigationBar.backIndicatorImage = buttonImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = buttonImage
         
         missionName.textAlignment = .center
         missionName.font = .boldSystemFont(ofSize: 40)
@@ -152,8 +181,12 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
         rocketName.textAlignment = .center
         rocketName.font = .boldSystemFont(ofSize: 20)
         
-        self.navigationController?.navigationBar.backIndicatorImage = buttonImage
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = buttonImage
+        video.backgroundColor = .cyan
+    
+        wikipedia.setImage(wikipediaLogo!, for: .normal)
+        video.setImage(youtubeLogo!, for: .normal)
+        article.setImage(articleLogo!, for: .normal)
+        reddit.setImage(redditLogo!, for: .normal)
     }
     
     private func configureCollectionView() {
@@ -169,6 +202,78 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
         collectionView.delegate = self
         collectionView.isUserInteractionEnabled = true
     }
+    
+    private func configureStackView() {
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+    }
+    
+    private func setupBehavior() {
+        wikipedia.addTarget (
+            self,
+            action: #selector(openWikipedia),
+            for: .touchUpInside
+        )
+        
+        reddit.addTarget(
+            self,
+            action: #selector(openReddit),
+            for: .touchUpInside
+        )
+        
+        article.addTarget(
+            self,
+            action: #selector(openArticle),
+            for: .touchUpInside
+        )
+        
+        video.addTarget(
+            self,
+            action: #selector(openVideo),
+            for: .touchUpInside
+        )
+    }
+    
+    
+    @objc private func openWikipedia(sender: UIButton) {
+        
+        if let url = wikipediaURL {
+            UIApplication.shared.open(url)
+        } else {
+            wikipedia.isHidden = true
+        }
+    }
+    
+    @objc private func openReddit(sender: UIButton) {
+        
+        if redditURL ==  nil {
+            reddit.isHidden = true
+        }
+        
+        if let url = redditURL {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @objc private func openArticle(sender: UIButton) {
+        
+        if let url = articleURL {
+            UIApplication.shared.open(url)
+        } else {
+            article.isHidden = true
+        }
+    }
+    
+    @objc private func openVideo(sender: UIButton) {
+   
+        if let url = videoURL {
+            UIApplication.shared.open(url)
+        } else {
+            video.isHidden = true
+        }
+    }
+    
 }
 
 extension LaunchInfoViewController: UICollectionViewDataSource {

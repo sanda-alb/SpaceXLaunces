@@ -78,6 +78,11 @@ class LaunchMissionCell: UITableViewCell {
         let launchDate: String?
         let rocketName: String?
         let images: [String]
+        let wikipedia: String?
+        let reddit: String?
+        let video: String?
+        let article: String?
+        
         
         init(mission: Mission) {
             self.patch = mission.links.patchPath
@@ -85,6 +90,10 @@ class LaunchMissionCell: UITableViewCell {
             self.launchDate = mission.launchDate
             self.rocketName = mission.rocket.rocketName
             self.images = mission.links.images
+            self.wikipedia = mission.links.wikipedia
+            self.reddit = mission.links.reddit
+            self.video = mission.links.video
+            self.article = mission.links.article
         }
         
     }
