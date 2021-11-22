@@ -50,7 +50,6 @@ class LaunchMissionCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-10)
             make.height.equalTo(100)
             make.width.equalTo(110)
-    
         }
         
         missionName.snp.makeConstraints { make in
@@ -68,7 +67,7 @@ class LaunchMissionCell: UITableViewCell {
     private func setupAppereance() {
         missionName.font = UIFont.boldSystemFont(ofSize: 20)
         missionName.numberOfLines = 2
-        
+    
         launchDate.font = .systemFont(ofSize: 15)
     }
     
@@ -83,7 +82,6 @@ class LaunchMissionCell: UITableViewCell {
         let video: String?
         let article: String?
         
-        
         init(mission: Mission) {
             self.patch = mission.links.patchPath
             self.missionName = mission.missionName
@@ -95,7 +93,6 @@ class LaunchMissionCell: UITableViewCell {
             self.video = mission.links.video
             self.article = mission.links.article
         }
-        
     }
 }
 

@@ -33,7 +33,7 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     }
     
     func passViewModels(cellViewModels: [LaunchMissionCell.ViewModel]) {
-        missionListVM = cellViewModels
+        missionListVM = cellViewModels.reversed()
         tableView.reloadData()
     }
     
@@ -66,7 +66,6 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     
     private func configureTableView() {
         tableView.register(LaunchMissionCell.self, forCellReuseIdentifier: "launchMissionCell")
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
