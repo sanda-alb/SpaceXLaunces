@@ -14,8 +14,8 @@ import Kingfisher
 class LaunchListViewController: UIViewController, LaunchListViewInput {
 
     var output: LaunchListViewOutput!
-    var missionListVM: [LaunchMissionCell.ViewModel] = []
     
+    private var missionListVM: [LaunchMissionCell.ViewModel] = []
     private let emptyImage = UIImage(systemName: "icloud.slash" )
     private let placeholderImage = UIImage(systemName: "shield")
     private let tableView = UITableView()
@@ -24,7 +24,6 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
-        
        
         setupAll()
     }
@@ -69,6 +68,7 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
         tableView.register(LaunchMissionCell.self, forCellReuseIdentifier: "launchMissionCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 130
     }
 }
 

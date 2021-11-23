@@ -8,5 +8,4 @@
 
 protocol LaunchListModuleInput: class {
 
- 
 }

@@ -54,7 +54,6 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     private func embedViews() {
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
-   
     }
     
     private func setupLayout() {
@@ -83,6 +82,7 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     }
     
     func passURL(imageURL: URL) {
+//        let newSize = CGSize(width: view.frame.width, height: view.frame.height * UIScreen.main.scale)
         let newSize = CGSize(width: view.frame.width, height: view.frame.height * UIScreen.main.scale)
         let resizingProcessor = ResizingImageProcessor(referenceSize: newSize, mode: .aspectFit)
         
@@ -95,57 +95,5 @@ extension SingleImageViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-    
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
-    
-      updateConstraintsForSize(view.bounds.size)
-    }
-
-    
-//    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
-//            let size = image.size
-//
-//            let widthRatio  = targetSize.width  / size.width
-//            let heightRatio = targetSize.height / size.height
-//
-//            // Figure out what our orientation is, and use that to form the rectangle
-//            var newSize: CGSize
-//            if(widthRatio > heightRatio) {
-//                newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-//            } else {
-//                newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-//            }
-//
-//            // This is the rect that we've calculated out and this is what is actually used below
-//            let rect = CGRect(origin: .zero, size: newSize)
-//
-//            // Actually do the resizing to the rect using the ImageContext stuff
-//            UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-//            image.draw(in: rect)
-//            let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//            UIGraphicsEndImageContext()
-//
-//            return newImage
-//        }
-    
-    func updateConstraintsForSize(_ size: CGSize) {
-        
-        let yOffset = max(0, (size.height - imageView.frame.height) / 2)
-        print ("Y \(yOffset)")
-        imageView.snp.makeConstraints { make in
-            make.top.equalTo(yOffset)
-            make.bottom.equalTo(yOffset)
-        }
-        
-        let xOffset = max(0, (size.width - imageView.frame.width) / 2)
-        print ("X \(xOffset)")
-        imageView.snp.makeConstraints{ make in
-            make.leading.equalTo(xOffset)
-            make.trailing.equalTo(xOffset)
-        }
-        
-      view.layoutIfNeeded()
-    }
-    
 }
 

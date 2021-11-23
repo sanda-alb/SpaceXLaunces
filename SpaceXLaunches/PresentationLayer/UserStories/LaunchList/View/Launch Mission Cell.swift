@@ -48,7 +48,6 @@ class LaunchMissionCell: UITableViewCell {
             make.top.equalToSuperview().offset(10)
             make.leading.equalToSuperview().offset(20)
             make.bottom.equalToSuperview().offset(-10)
-            make.height.equalTo(100)
             make.width.equalTo(110)
         }
         
