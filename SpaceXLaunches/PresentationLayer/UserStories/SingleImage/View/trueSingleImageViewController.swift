@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SnapKit
 
 class SingleImageViewController: UIViewController, SingleImageViewInput {
    
@@ -15,12 +16,6 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     private let scrollView = UIScrollView()
     private let imageView = UIImageView()
     private let rocket = UIImage(named: "rocket")
-    private var imageViewOriginalSize = CGRect ()
-    
-    var imageViewBottomConstraint: NSLayoutConstraint!
-    var imageViewLeadingConstraint: NSLayoutConstraint!
-    var imageViewTopConstraint: NSLayoutConstraint!
-    var imageViewTrailingConstraint: NSLayoutConstraint!
 
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -59,6 +54,8 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     private func setupLayout() {
        
         scrollView.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
+//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin)
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -66,10 +63,7 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
         }
         
         imageView.snp.makeConstraints { make in
-            make.top.equalTo (scrollView.snp.top)
-            make.leading.equalTo(scrollView.snp.leading)
-            make.trailing.equalTo(scrollView.snp.trailing)
-            make.bottom.equalTo(scrollView.snp.bottom)
+            make.centerY.centerX.equalToSuperview()
         }
     }
     
@@ -82,12 +76,21 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     }
     
     func passURL(imageURL: URL) {
-//        let newSize = CGSize(width: view.frame.width, height: view.frame.height * UIScreen.main.scale)
-        let newSize = CGSize(width: view.frame.width, height: view.frame.height * UIScreen.main.scale)
-        let resizingProcessor = ResizingImageProcessor(referenceSize: newSize, mode: .aspectFit)
+        
+        let resizingProcessor = ResizingImageProcessor(referenceSize: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 1), mode: .aspectFit)
         
         imageView.kf.setImage(with: imageURL, placeholder: nil, options: [.processor(resizingProcessor),], completionHandler: nil)
     }
+    
+
+    override func updateViewConstraints() {
+        imageView.snp.updateConstraints { make in
+
+        make.centerY.centerX.equalToSuperview()
+        }
+        super.updateViewConstraints()
+    }
+    
 }
 
 extension SingleImageViewController: UIScrollViewDelegate {
