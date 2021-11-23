@@ -24,6 +24,7 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
+        
        
         setupAll()
     }
