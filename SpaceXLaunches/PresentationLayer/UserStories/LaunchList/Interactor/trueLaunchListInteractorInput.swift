@@ -10,5 +10,5 @@ import Foundation
 
 protocol LaunchListInteractorInput {
     
-    func fetchMissions()
+    func fetchData()
 }

@@ -15,5 +15,5 @@ protocol LaunchInfoViewInput: class {
 
     func setupInitialState()
     
-    func passMissionVM(mission: LaunchMissionCell.ViewModel)
+    func passMission(mission: LaunchMissionCell.ViewModel)
 }

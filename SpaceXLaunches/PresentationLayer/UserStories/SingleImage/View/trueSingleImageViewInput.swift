@@ -16,5 +16,5 @@ protocol SingleImageViewInput: class {
 
     func setupInitialState()
     
-    func passURL(imageURL: URL)
+    func passImageURL(imageURL: URL)
 }

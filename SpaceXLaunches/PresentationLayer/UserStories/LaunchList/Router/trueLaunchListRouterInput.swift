@@ -10,5 +10,5 @@ import Foundation
 
 protocol LaunchListRouterInput {
 
-    func goForInfo(missionInfo: LaunchMissionCell.ViewModel)
+    func openInfoScreen(missionInfo: LaunchMissionCell.ViewModel)
 }

@@ -10,5 +10,5 @@ import Foundation
 
 protocol LaunchListInteractorOutput: class {
 
-    func passDataFromInteractor(missions: [Mission] )
+    func passData(missions: [Mission] )
 }

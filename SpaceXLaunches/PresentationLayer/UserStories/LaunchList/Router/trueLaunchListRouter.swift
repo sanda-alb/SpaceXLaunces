@@ -14,7 +14,7 @@ class LaunchListRouter: LaunchListRouterInput {
         self.viewController = viewController
     }
 
-    func goForInfo(missionInfo: LaunchMissionCell.ViewModel) {
+    func openInfoScreen(missionInfo: LaunchMissionCell.ViewModel) {
         let vc = LaunchInfoViewController()
         LaunchInfoModuleConfigurator().configureModuleForViewInput(viewInput: vc, missionInfo: missionInfo)
         

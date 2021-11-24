@@ -15,7 +15,7 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
 
     var output: LaunchListViewOutput!
     
-    private var missionListVM: [LaunchMissionCell.ViewModel] = []
+    private var missionList: [LaunchMissionCell.ViewModel] = []
     private let emptyImage = UIImage(systemName: "icloud.slash" )
     private let placeholderImage = UIImage(systemName: "shield")
     private let tableView = UITableView()
@@ -32,8 +32,8 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
     func setupInitialState() {
     }
     
-    func passViewModels(cellViewModels: [LaunchMissionCell.ViewModel]) {
-        missionListVM = cellViewModels.reversed()
+    func fetchMissions(missions: [LaunchMissionCell.ViewModel]) {
+        missionList = missions.reversed()
         tableView.reloadData()
     }
     
@@ -55,13 +55,11 @@ class LaunchListViewController: UIViewController, LaunchListViewInput {
             make.trailing.equalToSuperview()
             make.leading.equalToSuperview()
         }
-        
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
     }
     
     private func setupAppereance() {
         view.backgroundColor = . white
-
     }
     
     private func configureTableView() {
@@ -79,21 +77,20 @@ extension LaunchListViewController:  UITableViewDataSource {
             for: indexPath
         ) as! LaunchMissionCell
 
-        cell.apply(model: missionListVM[indexPath.row])
+        cell.apply(missionModel: missionList[indexPath.row])
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return missionListVM.count
+        return missionList.count
        }
 }
 
 extension LaunchListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        output.cellTapped(missionInfo: missionListVM[indexPath.row])
+        output.cellTapped(missionInfo: missionList[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

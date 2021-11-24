@@ -15,7 +15,6 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
     
     var output: LaunchInfoViewOutput!
 
-    // views
     private let patch = UIImageView()
     private let missionName = UILabel()
     private let launchDate = UILabel()
@@ -26,13 +25,12 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
     private let video = UIButton()
     private let reddit = UIButton()
     private var images: [URL] = []
-    private var linksURLs: [UIButton: URL] = [:]
+    private var buttonsURLs: [UIButton: URL] = [:]
     private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
     
-    // images
     private let placeholderImage = UIImage(systemName: "shield")
     private let buttonImage = UIImage(systemName: "arrowshape.turn.up.left.fill" )
     private let wikipediaLogo = UIImage(named: "wikipediaLogo")
@@ -40,29 +38,20 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
     private let articleLogo = UIImage(named: "articleLogo")
     private let youtubeLogo = UIImage(named: "youtubeLogo")
     
- var collectionViewHeight: NSLayoutConstraint!
-    
-
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         output.viewIsReady()
 
-        embedViews()
-        setupLayout()
-        setupAppereance()
-        configureCollectionView()
-        configureStackView()
-        setupBehavior()
-        
+        setupAll()
     }
 
     // MARK: LaunchInfoViewInput
     func setupInitialState() {
     }
     
-    func passMissionVM(mission: LaunchMissionCell.ViewModel) {
+    func passMission(mission: LaunchMissionCell.ViewModel) {
     
         images = mission.images.compactMap { URL(string: $0) }
         let noCollectionView = images.isEmpty
@@ -78,17 +67,17 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
         let patchLink = URL(string: mission.patch ?? "")
         patch.kf.setImage(with: patchLink, placeholder: placeholderImage, options: nil, completionHandler: nil)
        
-        let linksStrings = [ reddit: mission.reddit,
+        let buttonsLinks = [ reddit: mission.reddit,
                              wikipedia: mission.wikipedia,
                              video: mission.video,
                              article: mission.article
         ]
     
         // Hide button if its link is nil
-        for (key, value) in linksStrings {
+        for (key, value) in buttonsLinks {
             
             if value != nil {
-                linksURLs[key] = URL(string: value ?? "")
+                buttonsURLs[key] = URL(string: value ?? "")
             } else {
                 key.isHidden = true
             }
@@ -96,11 +85,18 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
     }
     
     func apply(mission: LaunchMissionCell.ViewModel) {
-        
+    }
+    
+    private func setupAll() {
+        embedViews()
+        setupLayout()
+        setupAppereance()
+        configureCollectionView()
+        configureStackView()
+        setupBehavior()
     }
     
     private func embedViews() {
-        
         [  wikipedia,
            article,
            video,
@@ -121,7 +117,6 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
     }
     
     private func setupLayout() {
-    
         missionName.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(10)
             make.leading.equalToSuperview().offset(10)
@@ -146,7 +141,6 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
             make.height.equalTo(200)
             make.width.equalTo(200)
         }
-        
      
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(patch.snp.bottom).offset(20)
@@ -244,31 +238,26 @@ class LaunchInfoViewController: UIViewController, LaunchInfoViewInput {
         )
     }
     
-    
     @objc private func openWikipedia(sender: UIButton) {
-        
-        if let url = linksURLs[wikipedia] {
+        if let url = buttonsURLs[wikipedia] {
             UIApplication.shared.open(url)
         }
     }
     
     @objc private func openReddit(sender: UIButton) {
-        
-        if let url = linksURLs[reddit] {
+        if let url = buttonsURLs[reddit] {
             UIApplication.shared.open(url)
         }
     }
     
     @objc private func openArticle(sender: UIButton) {
-        
-        if let url = linksURLs[article] {
+        if let url = buttonsURLs[article] {
             UIApplication.shared.open(url)
         }
     }
     
     @objc private func openVideo(sender: UIButton) {
-   
-        if let url = linksURLs[video] {
+        if let url = buttonsURLs[video] {
             UIApplication.shared.open(url)
         }
     }
@@ -294,6 +283,5 @@ extension LaunchInfoViewController: UICollectionViewDataSource {
 extension LaunchInfoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         output.imageTapped(imageURL: images[indexPath.row])
-       print("User tapped on item \(indexPath.row)")
     }
 }

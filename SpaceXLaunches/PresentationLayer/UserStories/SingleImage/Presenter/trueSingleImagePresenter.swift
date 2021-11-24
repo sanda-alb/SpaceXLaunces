@@ -20,6 +20,6 @@ class SingleImagePresenter: SingleImageModuleInput, SingleImageViewOutput, Singl
     }
 
     func viewIsReady() {
-        view.passURL(imageURL: imageURL)
+        view.passImageURL(imageURL: imageURL)
     }
 }

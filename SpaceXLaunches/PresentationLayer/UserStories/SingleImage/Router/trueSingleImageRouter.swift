@@ -8,6 +8,4 @@
 
 class SingleImageRouter: SingleImageRouterInput {
 
-    
-
 }

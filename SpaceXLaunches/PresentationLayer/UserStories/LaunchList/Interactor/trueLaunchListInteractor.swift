@@ -13,7 +13,7 @@ class LaunchListInteractor: LaunchListInteractorInput {
     var missions: [Mission] = []
     weak var output: LaunchListInteractorOutput!
     
-    func fetchMissions() {
+    func fetchData() {
         AF.request("https://api.spacexdata.com/v3/launches")
             .validate()
             .responseDecodable(of: [Mission].self) { response in
@@ -21,7 +21,7 @@ class LaunchListInteractor: LaunchListInteractorInput {
                 case .success:
                     print("Validation Successful")
                     self.missions = response.value!
-                    self.output.passDataFromInteractor(missions: self.missions)
+                    self.output.passData(missions: self.missions)
                 case let .failure(error):
                     print(error)
                 }

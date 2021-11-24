@@ -10,9 +10,9 @@ import UIKit
 import Kingfisher
 
 class LaunchMissionCell: UITableViewCell {
-    var patch = UIImageView()
-    var missionName = UILabel()
-    var launchDate = UILabel()
+    private let patch = UIImageView()
+    private let missionName = UILabel()
+    private let launchDate = UILabel()
     private let placeholderImage = UIImage(systemName: "shield")
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,11 +27,11 @@ class LaunchMissionCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func apply(model: LaunchMissionCell.ViewModel) {
-        let patchLink = URL(string: model.patch ?? "")
+    func apply(missionModel: LaunchMissionCell.ViewModel) {
+        let patchLink = URL(string: missionModel.patch ?? "")
         patch.kf.setImage(with: patchLink, placeholder: placeholderImage, options: nil, completionHandler: nil)
-        missionName.text = model.missionName
-        launchDate.text = model.launchDate?.formatDate()
+        missionName.text = missionModel.missionName
+        launchDate.text = missionModel.launchDate?.formatDate()
     }
     
     private func embedViews() {

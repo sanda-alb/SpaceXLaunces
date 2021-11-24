@@ -52,10 +52,7 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
     }
     
     private func setupLayout() {
-       
         scrollView.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin)
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -75,22 +72,31 @@ class SingleImageViewController: UIViewController, SingleImageViewInput {
         scrollView.delegate = self
     }
     
-    func passURL(imageURL: URL) {
+    func passImageURL(imageURL: URL) {
+        let resizingProcessor = ResizingImageProcessor(
+            referenceSize:
+                CGSize(
+                    width: UIScreen.main.bounds.width,
+                    height: UIScreen.main.bounds.height - 1
+                ),
+            mode: .aspectFit
+        )
         
-        let resizingProcessor = ResizingImageProcessor(referenceSize: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 1), mode: .aspectFit)
-        
-        imageView.kf.setImage(with: imageURL, placeholder: nil, options: [.processor(resizingProcessor),], completionHandler: nil)
+        imageView.kf.setImage(
+            with: imageURL,
+            placeholder: nil,
+            options: [.processor(resizingProcessor),],
+            completionHandler: nil)
     }
     
-
-    override func updateViewConstraints() {
-        imageView.snp.updateConstraints { make in
-
-        make.centerY.centerX.equalToSuperview()
-        }
-        super.updateViewConstraints()
-    }
-    
+//    override func updateViewConstraints() {
+//        imageView.snp.updateConstraints { make in
+//
+//            make.centerX.equalToSuperview()
+//            make.centerY.equalToSuperview()
+//        }
+//        super.updateViewConstraints()
+//    }
 }
 
 extension SingleImageViewController: UIScrollViewDelegate {
