@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import UIKit
-
 
 struct Mission: Decodable {
     
@@ -45,13 +43,9 @@ struct Links: Decodable {
 
 struct Rocket: Decodable {
     
-let rocketName: String?
+    let rocketName: String?
     
     enum CodingKeys: String, CodingKey {
         case rocketName = "rocket_name"
     }
 }
-
-
-
-
